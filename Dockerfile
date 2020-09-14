@@ -2,6 +2,8 @@
 FROM node:12.8-alpine as develop-stage
 WORKDIR /app
 COPY package*.json ./
+RUN apk update && \
+    apk add git
 RUN yarn install
 COPY . .
 
